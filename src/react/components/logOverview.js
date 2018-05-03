@@ -12,8 +12,8 @@ const LogOverview = (props) => {
         ?
           props.logs.map(log => {
             return (
-              <div key={log.timeStamp}>
-                <code>{log.valueLeft} {log.operator} {log.valueRight} = {log.result}</code>
+              <div key={log.id}>
+                <code>[{log.valueLeft} {log.operator} {log.valueRight} = {log.result}]</code>
               </div>
             );
           }) 

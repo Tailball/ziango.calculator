@@ -28,7 +28,7 @@ class Calculator extends React.Component {
 
   handleButtonPress(button) {
     let isNumber = !isNaN(button);
-    let canAddPoint = button === '.' && this.props.valueRight.indexOf('.') === -1;
+    let canAddPoint = button === '.' && String(this.props.valueRight).indexOf('.') === -1;
     
     if(isNumber || canAddPoint) {
       this.props.dispatch(AddDigit(button));
