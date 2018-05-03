@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const LogOverview = (props) => {
   return (
-    <div className="LogSection">
+    <div className="logSection">
       <h4>Previous calculations</h4>
       {
         props.logs.map(log => {

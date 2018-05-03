@@ -1,6 +1,6 @@
 const defaultOperationReducerCache = {
   value: 0,
-  workValue: undefined,
+  workValue: '0',
   activeOperator: undefined
 };
 
