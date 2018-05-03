@@ -1,3 +1,5 @@
+import { LOG_ADD } from '../actions/logActions';
+
 const defaultLogReducerCache = [
   {
     timeStamp: new Date().getMilliseconds() + 654545,
@@ -24,6 +26,9 @@ const defaultLogReducerCache = [
 
 const LogReducer = (state = defaultLogReducerCache, action) => {
   switch(action.type){
+    case LOG_ADD:
+      return [...state, action.payload];
+
     default: 
       return state;
   }
