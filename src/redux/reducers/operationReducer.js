@@ -1,8 +1,12 @@
-import { OPERATION_SWITCH, OPERATION_AC } from '../actions/operationActions';
+import { 
+  OPERATION_SWITCH, 
+  OPERATION_AC,
+  OPERATION_ADDDIGIT 
+} from '../actions/operationActions';
 
 const defaultOperationReducerCache = {
   value: 0,
-  workValue: '3122.456',
+  workValue: '0',
   activeOperator: undefined,
   switchedOn: true
 };
@@ -23,7 +27,13 @@ const OperationReducer = (state = defaultOperationReducerCache, action) => {
         value: 0,
         workValue: '0',
         activeOperator: undefined
-      }
+      };
+
+    case OPERATION_ADDDIGIT:
+      return{
+        ...state,
+        workValue: state.workValue + action.payload
+      };
 
     default:
       return state;

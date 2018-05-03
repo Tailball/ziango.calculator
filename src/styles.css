@@ -24,7 +24,7 @@ h1 {
 }
 
 .screen {
-  font-size: 2.5em;
+  font-size: 2.7em;
   color: #07446B;
   background-color: #D1F5BB;
   text-align: right;
@@ -32,6 +32,7 @@ h1 {
   margin-bottom: 10px;
   border: 3px solid #079565;
   border-radius: 10px;
+  font-family: 'VT323', monospace;
 }
 
 .buttons {

@@ -8,7 +8,19 @@ import CalculatorInputButtons from './calculatorInputButtons';
 import CalculatorOperatorButtons from './calculatorOperatorButtons';
 import CalculatorMachineButtons from './calculatorMachineButtons';
 
+import { AddDigit } from '../../redux/actions/operationActions';
+
 class Calculator extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.handleButtonPress = this.handleButtonPress.bind(this);
+  }
+
+  handleButtonPress(button){
+    this.props.dispatch(AddDigit(button));
+  }
+
   render() {
     return ( 
       <Wrapper>
@@ -18,9 +30,21 @@ class Calculator extends React.Component {
             <CalculatorScreen />
 
             <div className="buttons">
-              <CalculatorMachineButtons isDisabled={!this.props.switchedOn} />
-              <CalculatorInputButtons isDisabled={!this.props.switchedOn} />
-              <CalculatorOperatorButtons isDisabled={!this.props.switchedOn} />
+              
+              <CalculatorMachineButtons 
+                isDisabled={!this.props.switchedOn} 
+              />
+
+              <CalculatorInputButtons 
+                isDisabled={!this.props.switchedOn} 
+                buttonPressHandler={this.handleButtonPress}
+              />
+
+              <CalculatorOperatorButtons 
+                isDisabled={!this.props.switchedOn} 
+                buttonPressHandler={this.handleButtonPress}
+              />
+
             </div>
           </div>
 
