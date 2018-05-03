@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const CalculatorOperatorButtons = () => {
+const CalculatorOperatorButtons = (props) => {
   return (
     <div className="operatorButtons">
-      <button>&divide;</button>
-      <button>&times;</button>
-      <button>&minus;</button>
-      <button>+</button>
+      <button disabled={props.isDisabled}>&divide;</button>
+      <button disabled={props.isDisabled}>&times;</button>
+      <button disabled={props.isDisabled}>&minus;</button>
+      <button disabled={props.isDisabled}>+</button>
     </div>
   );
 };

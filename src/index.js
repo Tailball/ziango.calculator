@@ -15,5 +15,3 @@ const baseJSX = (
 );
 
 ReactDOM.render(baseJSX, document.querySelector('#reactContainer'));
-console.log(CalculatorStore.getState());
-

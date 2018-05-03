@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
+  background-color: #F5FAD2;
 }
 
 button:focus {
@@ -23,7 +24,7 @@ h1 {
   background-color: #07446B;
   border: 5px solid #07446B;
   border-radius: 15px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .screen {
@@ -40,14 +41,14 @@ h1 {
 .buttons {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 8px;
 }
 
 .inputButtons, 
 .operatorButtons,
 .machineButtons { 
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 8px;
 }
 
 .inputButtons {
@@ -70,7 +71,7 @@ h1 {
     color: #07446B;
     border: 3px solid #079565;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 10px;
     font-size: 1.5em;
     cursor: pointer;
   }
@@ -97,4 +98,29 @@ h1 {
 .logSection {
   width: 250px;
   margin: 0 auto;
+}
+
+header, 
+footer {
+  width: 100%;
+  color: #07446B;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 25px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  font-style: italic;
+}
+
+button:disabled,
+button:disabled:hover {
+  background-color: #D1F5BB;
+  color: #4CBD51;
+  font-weight: normal;
+  cursor: default;
 }
