@@ -1,8 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-const rootReducer = (state = 'Hello', action) => {
-  return state
-}
+import OperationReducer from './reducers/operationReducer';
+import LogReducer from './reducers/logReducer';
+
+const rootReducer = combineReducers({
+  operation: OperationReducer,
+  Logs: LogReducer
+});
 
 const CalculatorStore = createStore(rootReducer);
 
