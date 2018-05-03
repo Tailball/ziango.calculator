@@ -8,6 +8,7 @@ const CalculatorOperatorButtons = (props) => {
       <button onClick={() => props.buttonPressHandler('*')} disabled={props.isDisabled}>&times;</button>
       <button onClick={() => props.buttonPressHandler('-')} disabled={props.isDisabled}>&minus;</button>
       <button onClick={() => props.buttonPressHandler('+')} disabled={props.isDisabled}>+</button>
+      <button onClick={() => props.buttonPressHandler('=')} disabled={props.isDisabled}>=</button>
     </div>
   );
 };

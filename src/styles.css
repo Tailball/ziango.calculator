@@ -41,25 +41,28 @@ h1 {
   grid-gap: 8px;
 }
 
-.inputButtons, 
-.operatorButtons,
-.machineButtons { 
-  display: grid;
-  grid-gap: 8px;
-}
+  .leftButtons .machineButtons,
+  .leftButtons .inputButtons {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8px;
+  }
 
-.inputButtons {
-  grid-template-columns: 1fr 1fr 1fr;
-}
+    .leftButtons .machineButtons {
+      margin-bottom: 8px;
+    }
 
-.operatorButtons {
-  grid-template-columns: 1fr;
-}
+    .leftButtons .machineButtons button:first-child {
+      grid-column: 1 / 3;
+    }
 
-.machineButtons {
-  grid-column: 1 / 3;
-  grid-template-columns: 3fr 1fr;
-}
+  
+  .rightButtons .operatorButtons {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+  }
 
   .inputButtons button,
   .operatorButtons button,
@@ -90,7 +93,7 @@ h1 {
 
       .doubleSpan {
         grid-column: 1 / 3;
-      }
+      } 
 
 .logSection {
   width: 250px;

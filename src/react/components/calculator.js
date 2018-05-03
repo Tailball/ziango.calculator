@@ -31,19 +31,23 @@ class Calculator extends React.Component {
 
             <div className="buttons">
               
-              <CalculatorMachineButtons 
-                isDisabled={!this.props.switchedOn} 
-              />
+              <div className="leftButtons">
+                <CalculatorMachineButtons
+                  isDisabled={!this.props.switchedOn} 
+                />
 
-              <CalculatorInputButtons 
-                isDisabled={!this.props.switchedOn} 
-                buttonPressHandler={this.handleButtonPress}
-              />
+                <CalculatorInputButtons 
+                  isDisabled={!this.props.switchedOn} 
+                  buttonPressHandler={this.handleButtonPress}
+                />
+              </div>
 
-              <CalculatorOperatorButtons 
-                isDisabled={!this.props.switchedOn} 
-                buttonPressHandler={this.handleButtonPress}
-              />
+              <div className="rightButtons">
+                <CalculatorOperatorButtons 
+                  isDisabled={!this.props.switchedOn} 
+                  buttonPressHandler={this.handleButtonPress}
+                />
+              </div>
 
             </div>
           </div>
