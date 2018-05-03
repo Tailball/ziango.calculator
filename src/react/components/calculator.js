@@ -8,7 +8,12 @@ import CalculatorInputButtons from './calculatorInputButtons';
 import CalculatorOperatorButtons from './calculatorOperatorButtons';
 import CalculatorMachineButtons from './calculatorMachineButtons';
 
-import { AddDigit } from '../../redux/actions/operationActions';
+import { AddLog } from '../../redux/actions/logActions';
+import { 
+  AddDigit, 
+  UpdateOperator, 
+  PerformCalculation 
+} from '../../redux/actions/operationActions';
 
 class Calculator extends React.Component {
   constructor(props){
@@ -17,8 +22,40 @@ class Calculator extends React.Component {
     this.handleButtonPress = this.handleButtonPress.bind(this);
   }
 
-  handleButtonPress(button){
-    this.props.dispatch(AddDigit(button));
+  checkIfNumber(input) {
+    return input === "1" || input
+  }
+
+  handleButtonPress(button) {
+    let isNumber = !isNaN(button);
+    let canAddPoint = button === '.' && this.props.valueRight.indexOf('.') === -1;
+    
+    if(isNumber || canAddPoint) {
+      this.props.dispatch(AddDigit(button));
+      return;
+    }
+
+    let canAddOperator = (button === '/' || button === '+' || button === '*' || button === '-') && 
+                         (!this.props.activeOperator);
+    if(canAddOperator) {
+      this.props.dispatch(UpdateOperator(button));
+      return;
+    }
+
+    let canCalculate = (button === '=' && this.props.activeOperator);
+    if (canCalculate) {
+      let calculation = {
+        valueLeft: this.props.valueLeft,
+        valueRight: this.props.valueRight,
+        operator: this.props.activeOperator,
+        //would do this differently if I had more time :)
+        result: parseFloat(eval(`${this.props.valueLeft} ${this.props.activeOperator} ${this.props.valueRight}`)) 
+      };
+      
+      this.props.dispatch(PerformCalculation(calculation));
+      this.props.dispatch(AddLog(calculation));
+      return;
+    }
   }
 
   render() {
@@ -61,6 +98,9 @@ class Calculator extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  valueLeft: state.operation.valueLeft,
+  valueRight: state.operation.valueRight,
+  activeOperator: state.operation.activeOperator,
   switchedOn: state.operation.switchedOn
 });
 

@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const CalculatorScreen = (props) => (
-  <div className="screen">{props.workValue}</div>
+  <div className="screen">{props.value}</div>
 );
 
 const mapStateToProps = (state) => ({
-  workValue: state.operation.workValue
+  value: state.operation.valueRight
 });
 
 export default connect(mapStateToProps)(CalculatorScreen);
